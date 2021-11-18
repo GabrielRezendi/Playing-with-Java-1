@@ -1,6 +1,6 @@
-package com.calculadora;
+package playing.calculadora;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main (String[] args){
@@ -16,7 +16,7 @@ public class Main {
         System.out.print ("Informe o operador [+, -, /, *]: ");
         operador = sc.next().charAt(0);
         
-        Calculate calculadora = new Calculate();
+        CalculadoraCientifica calculadora = new CalculadoraCientifica();
       
         switch (operador){
             case '*':
@@ -26,11 +26,13 @@ public class Main {
                 System.out.println(calculadora.division(num[0], num[1]));
             break;
             case '+': 
-                System.out.println(calculadora.sum(num[0], num[1]));
+                System.out.println(calculadora.addition(num[0], num[1]));
             break;
             case '-': 
                 System.out.println(calculadora.substraction(num[0], num[1]));
             break;
+            case '^':
+               System.out.println(calculadora.exponential(num[0], num[1]));
             default: 
                 System.out.println("Operador invalido");
             break;
@@ -38,4 +40,5 @@ public class Main {
     }   
 
 }
+
 
