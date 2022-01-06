@@ -1,5 +1,6 @@
 package com.br.mvc.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import com.br.mvc.Repository.PedidoRepository;
@@ -23,8 +24,8 @@ public class HomeController {
 	private PedidoRepository repository;
 	
 	@GetMapping
-	public String home(Model model) {
-		List<Pedido> pedidos = repository.findAll();
+	public String home(Model model, Principal principal) {
+		List<Pedido> pedidos = repository.findByUsuario(principal.getName());
 		model.addAttribute("pedidos", pedidos);
 		return "home"; 
 	}
