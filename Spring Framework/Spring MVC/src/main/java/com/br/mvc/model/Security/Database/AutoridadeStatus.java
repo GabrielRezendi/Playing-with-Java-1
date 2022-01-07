@@ -1,8 +1,8 @@
 package com.br.mvc.model.Security.Database;
 
 public enum AutoridadeStatus {
-    ADMINISTRADOR("ADMINISTRADOR"),
-    USUARIO("USUARIO");    
+    ROLE_ADMINISTRADOR("ADMINISTRADOR"),
+    ROLE_USUARIO("USUARIO");    
     private  String role;
 
     AutoridadeStatus(String role){

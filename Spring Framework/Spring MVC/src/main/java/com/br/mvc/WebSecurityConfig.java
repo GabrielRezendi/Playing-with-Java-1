@@ -43,28 +43,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-		UserDetails usuario1 = User.builder()
+		UserDetails usuario = User.builder()
 				.username("yann")
 				.password(encoder.encode("1234"))
-				.roles(AutoridadeStatus.ADMINISTRADOR.toString())
+				.roles(AutoridadeStatus.ROLE_ADMINISTRADOR.toString())
 				.build();
 
 
 		auth.jdbcAuthentication().dataSource(dataSource)
 				.passwordEncoder(encoder)
-				.withUser(usuario1);
+				.withUser(usuario);
 
-				UserDetails usuario2 = User.builder()
+				usuario = User.builder()
 				.username("joao")
 				.password(encoder.encode("1234"))
-				.roles(AutoridadeStatus.ADMINISTRADOR.toString())
+				.roles(AutoridadeStatus.ROLE_ADMINISTRADOR.toString())
 				.build();
 
 
 		auth.jdbcAuthentication().dataSource(dataSource)
 				.passwordEncoder(encoder)
-				.withUser(usuario2);
+				.withUser(usuario);
 
+				usuario = User.builder()
+				.username("maria")
+				.password(encoder.encode("1234"))
+				.roles(AutoridadeStatus.ROLE_USUARIO.toString())
+				.build();
 
+				auth.jdbcAuthentication().dataSource(dataSource)
+				.passwordEncoder(encoder)
+				.withUser(usuario);
 	}
 }

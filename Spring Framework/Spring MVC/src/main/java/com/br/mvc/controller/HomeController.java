@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("home")
 public class HomeController {
 
-	
 	@Autowired
 	private PedidoRepository repository;
 	
@@ -31,8 +30,9 @@ public class HomeController {
 	}
 
 	@GetMapping ("/{status}")
-	public String status (@PathVariable("status") String status, Model model){
-		List<Pedido> pedidos = repository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
+	public String status (@PathVariable("status") String status, Model model, Principal principal){
+
+		List<Pedido> pedidos = repository.findByStatusAndByUsuario(principal.getName(), StatusPedido.valueOf(status.toUpperCase()));
 		model.addAttribute("status", status);
 		model.addAttribute("pedidos", pedidos);
 		return "home"; 
