@@ -7,9 +7,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.br.mvc.model.Security.Database.Usuario;
 
 @Entity
 public class Pedido {
@@ -17,15 +22,32 @@ public class Pedido {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
+  @Column(name = "nome_produto")
   private String nomeProduto;
+  @Column(name = "valor_negociado")
   private BigDecimal valorNegociado;
+  @Column(name = "data_da_entrega")
   private LocalDate dataDaEntrega;
+  @Column(name = "url_produto")
   private String urlProduto;
-  @Column(columnDefinition = "LONGTEXT")
+  @Column(name= "descricao_produto", columnDefinition = "LONGTEXT")
   private String descricao;
+  @Column(name = "url_imagem")
   private String urlImagem;
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
+
+  @ManyToOne ( fetch = FetchType.LAZY)
+  @JoinColumn(name = "nome_usuario")
+  private Usuario usuario;
+
+  public Usuario getUsuario() {
+    return this.usuario;
+  }
+
+  public void setUsuario(Usuario usuario) {
+    this.usuario = usuario;
+  }
 
   public StatusPedido getStatus() {
     return this.status;
