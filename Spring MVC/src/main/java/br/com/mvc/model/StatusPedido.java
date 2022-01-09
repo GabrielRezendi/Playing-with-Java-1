@@ -1,4 +1,4 @@
-package com.br.mvc.model;
+package br.com.mvc.model;
 
 public enum StatusPedido {
  

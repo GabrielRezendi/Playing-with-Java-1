@@ -1,9 +1,9 @@
-package com.br.mvc.dto;
+package br.com.mvc.dto;
 
 import javax.validation.constraints.NotBlank;
 
-import com.br.mvc.model.Pedido;
-import com.br.mvc.model.StatusPedido;
+import br.com.mvc.model.Pedido;
+import br.com.mvc.model.StatusPedido;
 
 public class RequisicaoNovoPedido {
 

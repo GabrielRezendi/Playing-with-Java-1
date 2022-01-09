@@ -1,18 +1,18 @@
-package com.br.mvc.service;
+package br.com.mvc.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.br.mvc.Repository.PedidoRepository;
-import com.br.mvc.Repository.UsuarioRepository;
-import com.br.mvc.model.Pedido;
-import com.br.mvc.model.StatusPedido;
-import com.br.mvc.model.Security.Database.Usuario;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+
+import br.com.mvc.Repository.PedidoRepository;
+import br.com.mvc.Repository.UsuarioRepository;
+import br.com.mvc.model.Pedido;
+import br.com.mvc.model.StatusPedido;
+import br.com.mvc.model.Security.Database.Usuario;
 
 @Service
 public class PopularBanco {

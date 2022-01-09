@@ -1,4 +1,4 @@
-package com.br.mvc.model.Security.Database;
+package br.com.mvc.model.Security.Database;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.br.mvc.model.Pedido;
+import br.com.mvc.model.Pedido;
 
 
 @Entity

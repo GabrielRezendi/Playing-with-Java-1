@@ -1,4 +1,4 @@
-package com.br.mvc.model.Security.Database;
+package br.com.mvc.model.Security.Database;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

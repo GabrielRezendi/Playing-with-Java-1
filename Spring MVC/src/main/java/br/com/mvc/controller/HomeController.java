@@ -1,0 +1,34 @@
+package br.com.mvc.controller;
+
+
+import java.security.Principal;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.mvc.Repository.PedidoRepository;
+import br.com.mvc.model.Pedido;
+import br.com.mvc.model.StatusPedido;
+
+@Controller
+@RequestMapping("/home")
+public class HomeController {
+
+	@Autowired
+	private PedidoRepository pedidoRepository;
+
+	@GetMapping
+	public String home(Model model, Principal principal) {
+			Sort sort = Sort.by("dataDaEntrega").descending();		
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE, sort);
+		model.addAttribute("pedidos", pedidos);
+	
+		return "home";
+	}
+
+}

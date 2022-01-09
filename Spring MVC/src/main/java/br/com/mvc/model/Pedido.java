@@ -1,4 +1,4 @@
-package com.br.mvc.model;
+package br.com.mvc.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.br.mvc.model.Security.Database.Usuario;
+import br.com.mvc.model.Security.Database.Usuario;
 
 @Entity
 public class Pedido {

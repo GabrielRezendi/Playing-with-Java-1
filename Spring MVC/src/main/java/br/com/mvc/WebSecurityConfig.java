@@ -1,8 +1,6 @@
-package com.br.mvc;
+package br.com.mvc;
 
 import javax.sql.DataSource;
-
-import com.br.mvc.model.Security.Database.AutoridadeStatus;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +12,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import br.com.mvc.model.Security.Database.AutoridadeStatus;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -24,19 +24,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-				.authorizeRequests()
-				.anyRequest().authenticated()
-				.and()
-				.formLogin()
-				.loginPage("/login")
-				.permitAll()
-				.defaultSuccessUrl("/home", true)
-				.and()
-				.logout(logout -> logout.logoutUrl("/logout"))
-				.csrf().disable();
-
+		.authorizeRequests()
+		.antMatchers("/home")
+			.permitAll()
+		.anyRequest()
+			.authenticated()
+		.and()
+		.formLogin(form -> form
+            .loginPage("/login")
+            .defaultSuccessUrl("/usuario/pedido", true)
+            .permitAll()
+        )
+		.logout(logout -> {
+			logout.logoutUrl("/logout")
+				.logoutSuccessUrl("/home");
+		});
 	}
-
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
