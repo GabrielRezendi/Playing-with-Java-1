@@ -1,8 +1,11 @@
 package br.com.mvc.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,11 +16,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import br.com.mvc.model.Security.Database.Usuario;
 
 @Entity
-public class Pedido {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Pedido  implements Serializable{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,8 +47,13 @@ public class Pedido {
 
   @ManyToOne ( fetch = FetchType.LAZY)
   @JoinColumn(name = "nome_usuario")
+  @JsonIgnore
   private Usuario usuario;
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+  @JsonIgnore
+	private List<Oferta> ofertas;
+  
   public Usuario getUsuario() {
     return this.usuario;
   }
@@ -123,7 +136,12 @@ public class Pedido {
     this.urlImagem = urlImagem;
   } 
 
-  
+  public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
 
   
 }

@@ -1,11 +1,11 @@
 <html>
 	<meta charset="UTF-8"/>
-	<head th:replace="~{template :: head}"></head>
+	<head th:replace="~{base :: head}"></head>
 	<body>
-		<div th:replace="~{template :: logo}"></div>
+		<div th:replace="~{base :: logo}"></div>
 	
 		<div class="container">
-			<div th:replace="~{template :: titulo('Login')}"></div>
+			<div th:replace="~{base :: titulo('Login')}"></div>
 		
 			<div class="card mb-3">
 				<form th:action="@{/login}" class="card-body" method="post">
