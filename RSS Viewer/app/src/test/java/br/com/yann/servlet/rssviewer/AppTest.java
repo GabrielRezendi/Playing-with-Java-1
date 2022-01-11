@@ -4,10 +4,11 @@
 package br.com.yann.servlet.rssviewer;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
 
-
-public class AppTest {
-    @Test public void appHasAGreeting() {
-        
-    }
-}
+// public class AppTest {
+//     @Test public void appHasAGreeting() {
+//         RssViewers classUnderTest = new RssViewers();
+//         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+// //     }
+// }
