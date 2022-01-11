@@ -26,10 +26,10 @@ public class App {
         // }
         stream.alias("note", Note.class);
         stream.allowTypes(new Class[] {Note.class}); 
-  
+        String url = "https://www.w3schools.com/xml/note.xml";    
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.w3schools.com/xml/note.xml"))
+                .uri(URI.create(url))
                 .build();
         HttpResponse<String> send = client.send(request, HttpResponse.BodyHandlers.ofString());
         String xml = send.body();
