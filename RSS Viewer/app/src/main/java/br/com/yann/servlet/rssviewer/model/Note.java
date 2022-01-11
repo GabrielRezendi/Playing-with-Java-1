@@ -5,6 +5,9 @@
  */
 package br.com.yann.servlet.rssviewer.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("note")
 public class Note {
   
     private String to;
