@@ -1,17 +1,18 @@
 package br.com.yann.servlet.rssreader.model;
 
 public class Note {
-  private String To;
+
+  private String to;
   private String from;
   private String heading;
   private String body;
 
   public String getTo() {
-    return this.To;
+    return this.to;
   }
 
-  public void setTo(String To) {
-    this.To = To;
+  public void setTo(String to) {
+    this.to = to;
   }
 
   public String getFrom() {
@@ -26,6 +27,7 @@ public class Note {
     return this.heading;
   }
 
+  //
   public void setHeading(String heading) {
     this.heading = heading;
   }
@@ -36,6 +38,17 @@ public class Note {
 
   public void setBody(String body) {
     this.body = body;
+
   }
-  
+
+  @Override
+  public String toString() {
+    return "{" +
+        " to='" + getTo() + "'" +
+        ", from='" + getFrom() + "'" +
+        ", heading='" + getHeading() + "'" +
+        ", body='" + getBody() + "'" +
+        "}";
+  }
+
 }

@@ -15,20 +15,13 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import br.com.yann.servlet.rssreader.model.Note;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public static void main(String[] args)throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         XStream stream = new XStream(new DomDriver());
-        // try (FileReader xml = new
-        // FileReader("app/src/main/resources/example/note.xml")) {
-        // Note note = (Note) stream.fromXML(xml);
-        // } catch (IOException e) { e.printStackTrace();
-        // }
+
         stream.alias("note", Note.class);
-        stream.allowTypes(new Class[] {Note.class}); 
-        String url = "https://www.w3schools.com/xml/note.xml";    
+        stream.allowTypes(new Class[] { Note.class });
+        String url = "https://www.w3schools.com/xml/note.xml";
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
