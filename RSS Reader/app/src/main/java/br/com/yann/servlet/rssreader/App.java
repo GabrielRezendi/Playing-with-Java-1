@@ -15,7 +15,9 @@ import com.thoughtworks.xstream.io.xml.StaxDriver;
 import br.com.yann.servlet.rssreader.model.Note;
 
 public class App {
-
+ //TODO Fazer o mapeamento do projeto
+ //TODO  ver todas as funções do stream
+ //TODO descobrir como eu posso nao dar erro de compilção caso o objeto nao exista
     public static void main(String[] args) throws IOException, InterruptedException {
         XStream stream = new XStream(new StaxDriver());
 
