@@ -10,14 +10,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 import br.com.yann.servlet.rssreader.model.Note;
 
 public class App {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        XStream stream = new XStream(new DomDriver());
+        XStream stream = new XStream(new StaxDriver());
 
         stream.alias("note", Note.class);
         stream.allowTypes(new Class[] { Note.class });
