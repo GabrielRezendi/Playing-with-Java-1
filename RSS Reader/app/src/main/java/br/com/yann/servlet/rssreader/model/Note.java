@@ -1,7 +1,7 @@
 package br.com.yann.servlet.rssreader.model;
 
 public class Note {
-
+  
   private String to;
   private String from;
   private String heading;
