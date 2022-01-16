@@ -2,10 +2,11 @@ package br.com.yann.calculadora;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 import br.com.yann.calculadora.operacoes.Divisao;
 import br.com.yann.calculadora.operacoes.Multiplicacao;
+import br.com.yann.calculadora.operacoes.Potencia;
 import br.com.yann.calculadora.operacoes.Resto;
 import br.com.yann.calculadora.operacoes.Soma;
 import br.com.yann.calculadora.operacoes.Subtracao;
@@ -17,11 +18,12 @@ public class CalculadoraCientifica {
  
   public CalculadoraCientifica() {
     this.operacoes = List.of(
-                                new Soma(),
-                                new Subtracao(),
-                                new Multiplicacao(),
-                                new Divisao(),
-                                new Resto()
+                              new Soma(),
+                              new Subtracao(),
+                              new Multiplicacao(),
+                              new Divisao(),
+                              new Resto(),
+                              new Potencia()
                             );
   }
 
