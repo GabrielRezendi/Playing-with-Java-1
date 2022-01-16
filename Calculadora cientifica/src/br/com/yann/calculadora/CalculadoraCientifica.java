@@ -29,16 +29,17 @@ public class CalculadoraCientifica {
   void iniciar (){
     
     System.out.println("----Calculadora Cientifica----");
+    
+    int contador = 1;
+    for (Command operacao : operacoes) {
 
-    final AtomicInteger contador = new AtomicInteger(1);
-    
-     operacoes.forEach( operacao -> {
-          int ultimoOcorrenciaDePontoDoFQN = operacao.getClass().getName().lastIndexOf(".");
-          String nomeClasse = operacao.getClass().getName().substring(ultimoOcorrenciaDePontoDoFQN+1);
-          
-          System.out.println(contador.getAndIncrement()+" - "+ nomeClasse);
-    });
-    
+      int ultimoOcorrenciaDePontoDoFQN = operacao.getClass().getName().lastIndexOf(".");
+      String nomeClasse = operacao.getClass().getName().substring(ultimoOcorrenciaDePontoDoFQN+1);
+
+      System.out.println(contador +" - "+ nomeClasse);
+      contador++;
+    }
+
     try (Scanner scanner = new Scanner(System.in)) {
 
       System.out.print("Informe sua opção: ");
