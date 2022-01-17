@@ -1,8 +1,13 @@
 package br.com.yann.servlet.rssreader.model;
 
 public class Note {
+<<<<<<< HEAD
 
   //private String to;
+=======
+  
+  private String to;
+>>>>>>> 26b0477deae8ae2dee3513e49bc2c1ab6ce57965
   private String from;
   private String heading;
   private String body;
