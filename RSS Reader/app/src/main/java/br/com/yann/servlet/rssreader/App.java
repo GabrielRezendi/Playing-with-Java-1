@@ -30,8 +30,9 @@ public class App {
                 .build();
         HttpResponse<String> send = client.send(request, HttpResponse.BodyHandlers.ofString());
         String xml = send.body();
-
+        stream.ignoreUnknownElements();
         Note note = (Note) stream.fromXML(xml);
+    
         System.out.println(note);
 
     }
